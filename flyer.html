@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flyer — Svalbard para Latinos</title>
+<meta name="theme-color" content="#0b1d33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#0a1422;color:#fff;font-family:Barlow,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center}
+.bar{width:100%;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;padding:10px}
+.bar button,.bar a{font:700 15px Barlow;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:9px 14px;border-radius:999px;cursor:pointer;text-decoration:none}
+.bar button.on{background:#e8b54a;border-color:#e8b54a;color:#16201a}
+.bar .bajar{background:#c4572e;border-color:#c4572e}
+.lienzo{flex:1;min-height:0;width:100%;display:flex;justify-content:center;align-items:center;padding:0 10px 10px}
+canvas{max-width:100%;max-height:100%;height:auto;width:auto;border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+#msg{font-size:13px;opacity:.8;padding:0 12px 10px;text-align:center}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="fPost" class="on">Post 1080×1350</button>
+  <button id="fEst">Estado 1080×1920</button>
+  <button id="lES" class="on">ES</button>
+  <button id="lEN">EN</button>
+  <button class="bajar" id="bajar">Descargar flyer</button>
+</div>
+<div class="lienzo"><canvas id="c" width="1080" height="1350"></canvas></div>
+<p id="msg">Cargando fotos reales...</p>
+<script>
+const URL_APP="svalbard-para-latinos.netlify.app";
+const QR="11111110011101010111001111111,10000010101011010111101000001,10111010001010010010001011101,10111010010100010010001011101,10111010100111110011101011101,10000010010100111101101000001,11111110101010101010101111111,00000000000111010111000000000,10101010001011011100100010010,10100101100111001110111001001,00011010110110101000101010111,10111001011111111100011010010,01010011000101011100011001011,10001100100001101000111001001,00000111110100101010001111011,10101101001101011111000101010,01011111010011000100111001011,00000001000111101000101001101,10110010001010100100101000011,01111101101011011101011001010,10100111101010101100111110000,00000000111111001000100010111,11111110000000101101101011011,10000010010111001110100011000,10111010100000111100111110000,10111010001010001110000010111,10111010111111001111000111001,10000010011010001111100010010,11111110100101111110101011011".split(",");
+const FOTOS={
+ aurora:{p:"7/7c/Svalbard_DSCF1400_(23849118591).jpg",c:"Aurora, Longyearbyen"},
+ casas:{p:"7/7b/Longyearbyen_colourful_homes.jpg",c:"Longyearbyen"},
+ osa:{p:"a/af/Female_polar_bear_(Ursus_maritimus)_with_cub,_Svalbard.jpg",c:"Hinlopen"},
+ boveda:{p:"3/39/Svalbard_Global_Seed_Vault_(23273281972).jpg",c:"Seed Vault"}
+};
+const V="#0b1d33",TEJA="#c4572e",ORO="#e8b54a",CREMA="#faf7f2",TINTA="#16201a";
+const TX={
+ es:{k:"LA ISLA SIN VISA, CERCA DEL POLO NORTE",t1:"SVALBARD",t2:"",
+     l:["Vivir y trabajar sin visa: la verdad","Cuánto te queda del sueldo","Osos polares y noche polar","Clima y luz en vivo, todos los días"],
+     d:"Gratis · Español e inglés · Fotos y videos reales",ab:"ÁBRELA AQUÍ",esc:"Escanea con la cámara"},
+ en:{k:"THE VISA-FREE ISLAND NEAR THE NORTH POLE",t1:"SVALBARD",t2:"",
+     l:["Live and work visa-free: the truth","How much of your salary you keep","Polar bears and polar night","Live weather and daylight, every day"],
+     d:"Free · Spanish and English · Real photos and videos",ab:"OPEN IT HERE",esc:"Scan with your camera"}
+};
+let L="es",H=1350,tainted=false;const img={};
+const c=document.getElementById("c"),x=c.getContext("2d");
+
+function cargar(k){
+  const p=FOTOS[k].p, nom=p.split("/").pop();
+  const intentos=[
+    ["fotos/"+k+".jpg",true],
+    ["https://upload.wikimedia.org/wikipedia/commons/thumb/"+p+"/1280px-"+nom,true],
+    ["https://upload.wikimedia.org/wikipedia/commons/"+p,true],
+    ["https://commons.wikimedia.org/wiki/Special:FilePath/"+nom+"?width=1280",false]
+  ];
+  return new Promise(res=>{
+    let i=0;const sig=()=>{
+      if(i>=intentos.length){res(null);return;}
+      const [u,cors]=intentos[i++];const im=new Image();
+      if(cors) im.crossOrigin="anonymous";
+      im.onload=()=>{ if(!cors) tainted=true; img[k]=im; res(im); };
+      im.onerror=sig; im.src=u;
+    };sig();
+  });
+}
+function cubrir(im,X,Y,W,Hh,fy=.5){
+  if(!im){const g=x.createLinearGradient(X,Y,X+W,Y+Hh);g.addColorStop(0,"#13304f");g.addColorStop(1,"#2b6a8f");x.fillStyle=g;x.fillRect(X,Y,W,Hh);return;}
+  const r=Math.max(W/im.width,Hh/im.height),w=im.width*r,h=im.height*r;
+  x.drawImage(im,X+(W-w)/2,Y+(Hh-h)*fy,w,h);
+}
+function rr(X,Y,W,Hh,R){x.beginPath();x.moveTo(X+R,Y);x.arcTo(X+W,Y,X+W,Y+Hh,R);x.arcTo(X+W,Y+Hh,X,Y+Hh,R);x.arcTo(X,Y+Hh,X,Y,R);x.arcTo(X,Y,X+W,Y,R);x.closePath();}
+function ajustar(txt,max,peso,tam,fam){let s=tam;do{x.font=peso+" "+s+"px "+fam;s-=2;}while(x.measureText(txt).width>max&&s>10);return s+2;}
+
+function dibujar(){
+  c.height=H; const t=TX[L], est=H>1500, M=60, W=1080;
+  x.fillStyle=CREMA;x.fillRect(0,0,W,H);
+  // foto principal
+  const hHero=est?1000:600;
+  x.save();x.beginPath();x.rect(0,0,W,hHero);x.clip();cubrir(img.aurora,0,0,W,hHero,.5);x.restore();
+  let g=x.createLinearGradient(0,0,0,hHero);g.addColorStop(0,"rgba(5,12,24,.6)");g.addColorStop(.22,"rgba(5,12,24,.08)");g.addColorStop(.42,"rgba(5,12,24,.35)");g.addColorStop(.6,"rgba(5,12,24,.72)");g.addColorStop(1,"rgba(5,12,24,.95)");
+  x.fillStyle=g;x.fillRect(0,0,W,hHero);
+  // marca arriba
+  x.fillStyle="#fff";x.font="700 30px Barlow";x.textBaseline="top";x.fillText("VIBRAS POSITIVAS HM",M,M);
+  x.textAlign="right";x.fillStyle=ORO;x.fillText("ES · EN",W-M,M);x.textAlign="left";
+  // titulo
+  x.textBaseline="alphabetic";
+  const yT=hHero-(est?230:150);
+  x.fillStyle=ORO;ajustar(t.k,W-2*M,"700",34,"Barlow");x.fillText(t.k,M,yT-118);
+  x.fillStyle="#fff";
+  const s1=ajustar(t.t1,W-2*M,"800",150,"'Barlow Condensed'");
+  x.fillText(t.t1,M,yT+20);
+  x.fillStyle=ORO;x.font="700 64px 'Barlow Condensed'";x.fillText(L==="en"?"FOR LATINOS":"PARA LATINOS",M,yT+100);
+  x.fillStyle="rgba(255,255,255,.75)";x.font="500 22px Barlow";x.textAlign="right";x.fillText(FOTOS.aurora.c,W-M,hHero-28);x.textAlign="left";
+  // tira de 3 fotos
+  const yS=hHero+24, hS=est?260:170, gap=16, wS=(W-2*M-2*gap)/3;
+  ["casas","osa","boveda"].forEach((k,i)=>{
+    const X=M+i*(wS+gap);x.save();rr(X,yS,wS,hS,18);x.clip();cubrir(img[k],X,yS,wS,hS);
+    const gg=x.createLinearGradient(0,yS+hS*.45,0,yS+hS);gg.addColorStop(0,"rgba(0,0,0,0)");gg.addColorStop(1,"rgba(0,0,0,.8)");x.fillStyle=gg;x.fillRect(X,yS,wS,hS);
+    x.fillStyle="#fff";x.font="700 24px Barlow";x.fillText(FOTOS[k].c,X+16,yS+hS-18);x.restore();
+  });
+  // lista
+  let yL=yS+hS+(est?70:50);const lh=est?66:46;
+  t.l.forEach((s,i)=>{
+    x.fillStyle=i===3?TEJA:V;rr(M,yL-30,10,40,4);x.fill();
+    x.fillStyle=i===3?TEJA:TINTA;x.font=(i===3?"800 ":"700 ")+(est?44:34)+"px "+(i===3?"'Barlow Condensed'":"Barlow");x.fillText(s,M+30,yL+2);yL+=lh;
+  });
+  if(est){x.fillStyle="#5d6b62";x.font="600 30px Barlow";x.fillText(t.d,M,yL+20);}
+  // franja inferior con URL completa y QR
+  const hF=est?330:280, yF=H-hF;
+  x.fillStyle=V;x.fillRect(0,yF,W,hF);x.fillStyle=TEJA;x.fillRect(0,yF,W,10);
+  const q=est?230:190, qx=W-M-q, qy=yF+(hF-q)/2+5;
+  x.fillStyle="#fff";rr(qx-14,qy-14,q+28,q+28,14);x.fill();
+  const n=QR.length,cel=q/n;x.fillStyle=TINTA;
+  QR.forEach((f,r)=>{for(let k=0;k<n;k++) if(f[k]==="1") x.fillRect(qx+k*cel,qy+r*cel,cel+.4,cel+.4);});
+  const anchoTxt=qx-14-M-30;
+  x.fillStyle=ORO;x.font="700 30px Barlow";x.fillText(t.ab,M,yF+(est?95:66));
+  x.fillStyle="#fff";ajustar(URL_APP,anchoTxt,"800",64,"'Barlow Condensed'");
+  // URL en dos líneas para que se lea grande y completa
+  const p1="svalbard-para-latinos", p2=".netlify.app";
+  const sU=Math.min(ajustar(p1,anchoTxt,"800",60,"'Barlow Condensed'"),60);
+  x.font="800 "+sU+"px 'Barlow Condensed'";x.fillText(p1,M,yF+(est?165:132));
+  x.fillStyle=ORO;x.fillText(p2,M,yF+(est?165:132)+sU+2);
+  x.fillStyle="rgba(255,255,255,.8)";x.font="600 22px Barlow";x.fillText(est?t.esc+" · 311 770 0431":t.esc,M,H-(est?40:30));
+  document.getElementById("msg").textContent = Object.keys(FOTOS).every(k=>img[k])
+    ? (tainted? (L==="en"?"Your browser blocks downloading these photos: take a screenshot of the flyer.":"Tu navegador no deja descargar estas fotos: toma captura de pantalla del flyer.") : (L==="en"?"Ready. Tap Download flyer.":"Listo. Toca Descargar flyer."))
+    : (L==="en"?"Some photos didn't load: check your connection and reload.":"Algunas fotos no cargaron: revisa la conexión y recarga.");
+}
+function sel(a,b){document.getElementById(a).classList.add("on");document.getElementById(b).classList.remove("on");}
+fPost.onclick=()=>{H=1350;sel("fPost","fEst");dibujar();};
+fEst.onclick=()=>{H=1920;sel("fEst","fPost");dibujar();};
+lES.onclick=()=>{L="es";sel("lES","lEN");dibujar();};
+lEN.onclick=()=>{L="en";sel("lEN","lES");dibujar();};
+bajar.onclick=()=>{
+  try{const a=document.createElement("a");a.download="flyer-svalbard-"+(H>1500?"estado":"post")+"-"+L+".png";a.href=c.toDataURL("image/png");a.click();}
+  catch(e){document.getElementById("msg").textContent=L==="en"?"Take a screenshot of the flyer.":"Toma captura de pantalla del flyer.";}
+};
+dibujar();
+Promise.all([document.fonts.load("800 60px 'Barlow Condensed'"),document.fonts.load("700 30px Barlow"),document.fonts.load("500 22px Barlow")].map(p=>p.catch(()=>{})))
+ .then(()=>{dibujar();return Promise.all(Object.keys(FOTOS).map(cargar));}).then(dibujar);
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+name: Traer fotos reales
+
+on:
+  push:
+    paths: [".github/workflows/fotos.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fotos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar fotos de Wikimedia Commons
+        run: |
+          mkdir -p fotos
+          UA="SvalbardParaLatinos/1.0 (https://github.com/haroldco45/svalbard-para-latinos)"
+          while IFS='|' read -r clave archivo; do
+            [ -z "$clave" ] && continue
+            url="https://commons.wikimedia.org/wiki/Special:FilePath/${archivo}?width=1280"
+            for i in 1 2 3; do
+              if curl -fsSL -A "$UA" -o "fotos/${clave}.jpg" "$url"; then echo "ok $clave"; break; fi
+              echo "reintento $clave"; sleep 5
+            done
+            sleep 2
+          done <<'LISTA'
+          aurora|Svalbard_DSCF1400_(23849118591).jpg
+          casas|Longyearbyen_colourful_homes.jpg
+          oso|Polar_bear_(Ursus_maritimus)_in_the_drift_ice_region_north_of_Svalbard.jpg
+          osa|Female_polar_bear_(Ursus_maritimus)_with_cub,_Svalbard.jpg
+          boveda|Svalbard_Global_Seed_Vault_(23273281972).jpg
+          noche|Night_Longyearbyen.jpg
+          calle|Longyearbyen,_Vei_500,_Svalbard,_July_2026.jpg
+          centro|LongyearbyenDowntown.jpg
+          iglesia|Longyearbyen-Church-2006.jpg
+          reno|SvalbardReindeer.jpg
+          zorro|Lis_polarny,_Svalbard_2010.jpg
+          perros|Adventdalen_hundespann_IMG_2801.jpg
+          valle|Adventdalen_IMG_4423_Hallwylfjellet.JPG
+          piramiden|Pyramiden_settlement_Svalbard.jpg
+          mina|Gruve_7_og_Adventdalen,_Svalbard.jpg
+          unis|Longyearbyen_UNIS.JPG
+          museo|Museum_PolarBear.JPG
+          skj|Svalbard_Skj%C3%A6ringa_IMG_2606_Longyearbyen.JPG
+          LISTA
+          ls -la fotos
+      - name: Imagen para compartir (og.jpg) con la foto real de la aurora
+        run: |
+          pip install --quiet pillow
+          python3 - <<'PY'
+          from PIL import Image, ImageDraw, ImageFont
+          import os
+          if not os.path.exists("fotos/aurora.jpg"): raise SystemExit(0)
+          im=Image.open("fotos/aurora.jpg").convert("RGB")
+          W,H=1200,630; r=max(W/im.width,H/im.height)
+          im=im.resize((int(im.width*r)+1,int(im.height*r)+1))
+          im=im.crop(((im.width-W)//2,(im.height-H)//2,(im.width-W)//2+W,(im.height-H)//2+H))
+          ov=Image.new("RGBA",(W,H)); d=ImageDraw.Draw(ov)
+          for y in range(H): d.line([(0,y),(W,y)],fill=(5,12,24,int(40+190*(y/H)**1.4)))
+          im=Image.alpha_composite(im.convert("RGBA"),ov); d=ImageDraw.Draw(im)
+          fb="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+          f1=ImageFont.truetype(fb,30); f2=ImageFont.truetype(fb,110); f3=ImageFont.truetype(fb,52); f4=ImageFont.truetype(fb,26)
+          d.text((60,50),"VIBRAS POSITIVAS HM",font=f4,fill=(255,255,255))
+          d.text((60,330),"LA ISLA SIN VISA, CERCA DEL POLO NORTE",font=f1,fill=(124,240,192))
+          d.text((56,370),"SVALBARD",font=f2,fill=(255,255,255))
+          d.text((60,495),"PARA LATINOS",font=f3,fill=(242,193,78))
+          d.text((60,568),"Papeles · Trabajo · Osos polares · Noche polar · ES / EN",font=f4,fill=(230,236,242))
+          im.convert("RGB").save("og.jpg",quality=86)
+          PY
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fotos og.jpg
+          git diff --cached --quiet || git commit -m "Fotos reales de Svalbard (Wikimedia Commons) e imagen para compartir"
+          git push

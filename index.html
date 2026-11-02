@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Svalbard para Latinos — vivir y trabajar en la isla sin visa, cerca del Polo Norte</title>
+<meta name="description" content="Guía bilingüe para latinos que sueñan con Svalbard (Noruega): el único lugar donde cualquiera puede vivir y trabajar sin visa. Papeles, trabajo, impuestos, osos polares, noche polar, clima en vivo y qué ver.">
+<meta name="theme-color" content="#0b1d33">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Svalbard para Latinos">
+<meta property="og:description" content="La isla sin visa cerca del Polo Norte: papeles, trabajo, osos polares y noche polar. Español e inglés.">
+<meta property="og:url" content="https://svalbard-para-latinos.netlify.app/">
+<meta property="og:image" content="https://haroldco45.github.io/svalbard-para-latinos/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Svalbard para Latinos">
+<meta name="twitter:description" content="La isla sin visa cerca del Polo Norte: papeles, trabajo, osos polares y noche polar. Español e inglés.">
+<meta name="twitter:image" content="https://haroldco45.github.io/svalbard-para-latinos/og.jpg">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#0b1d33; --noche2:#13304f; --hielo:#e9f1f7; --nieve:#f7fafc; --aurora:#3ddc97; --aurora2:#7cf0c0;
+  --rojo:#e4572e; --oro:#f2c14e; --tinta:#0a1422; --gris:#56677a;
+  --radio:18px; --sombra:0 10px 30px rgba(10,20,34,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:Barlow,system-ui,sans-serif;background:var(--nieve);color:var(--tinta);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:"Barlow Condensed",Barlow,sans-serif;letter-spacing:.2px;line-height:1.05}
+h2{font-size:clamp(30px,5vw,46px);color:var(--noche)}
+.kicker{display:inline-block;font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--rojo)}
+.lead{font-size:18px;color:var(--gris);max-width:780px;margin-top:10px}
+section{padding:70px 0}
+.foto{background:#9fb3c8 linear-gradient(135deg,#13304f,#2b6a8f);background-size:cover;background-position:center}
+.hielo{background:var(--hielo)}
+
+/* barra superior */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;background:rgba(11,29,51,.82);backdrop-filter:blur(10px);color:#fff}
+.top .marca{font-family:"Barlow Condensed";font-weight:800;font-size:20px;letter-spacing:.5px;text-decoration:none;white-space:nowrap}
+.top .marca b{color:var(--aurora)}
+.top nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{white-space:nowrap;text-decoration:none;font-weight:600;font-size:14px;padding:7px 11px;border-radius:999px;opacity:.85}
+.top nav a:hover,.top nav a.on{background:rgba(255,255,255,.16);opacity:1}
+.lang{display:flex;border:1.5px solid rgba(255,255,255,.5);border-radius:999px;overflow:hidden;flex-shrink:0}
+.lang button{background:none;border:0;color:#fff;font:700 13px Barlow;padding:6px 11px;cursor:pointer}
+.lang button.on{background:#fff;color:var(--noche)}
+@media(max-width:900px){.top nav{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:-4%;opacity:0;transition:opacity 1.6s ease;background-size:cover;background-position:center}
+.slide.on{opacity:1;animation:kb 9s ease-out forwards}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,12,24,.35) 0%,rgba(5,12,24,.12) 35%,rgba(5,12,24,.9) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:46px;padding-top:110px;width:100%}
+.hero h1{font-size:clamp(50px,11vw,112px);text-transform:uppercase;font-weight:800}
+.hero h1 span{color:var(--aurora2);display:block;font-size:.42em;letter-spacing:3px}
+.hero h1 em{font-style:normal;color:var(--oro);display:block;font-size:.5em}
+.hero p{font-size:clamp(17px,2.4vw,22px);max-width:660px;margin:14px 0 22px;opacity:.95}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:16px;padding:14px 22px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.btn.rojo{background:var(--rojo);color:#fff}
+.btn.claro{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+.btn.noche{background:var(--noche);color:#fff}
+.pie-foto{position:absolute;right:14px;bottom:12px;z-index:3;font-size:11px;opacity:.75;color:#fff;text-decoration:none;max-width:60%;text-align:right}
+.puntos{display:flex;gap:6px;margin-top:26px}
+.puntos i{width:28px;height:4px;border-radius:4px;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s,width .3s}
+.puntos i.on{background:var(--aurora);width:48px}
+
+/* franja en vivo */
+.franja{background:var(--noche);color:#fff}
+.franja .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.franja .c{padding:22px 14px;border-right:1px solid rgba(255,255,255,.12)}
+.franja .c:last-child{border:0}
+.franja b{display:block;font:800 clamp(28px,4vw,40px) "Barlow Condensed";color:var(--aurora)}
+.franja small{opacity:.85;font-size:14px}
+.vivo{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--rojo);margin-right:6px;animation:lat 1.4s infinite;vertical-align:middle}
+@keyframes lat{50%{opacity:.25}}
+@media(max-width:760px){.franja .wrap{grid-template-columns:1fr 1fr}.franja .c:nth-child(2){border-right:0}.franja .c:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}}
+
+.ticker{background:var(--rojo);color:#fff;overflow:hidden;white-space:nowrap;font-weight:700;padding:10px 0}
+.ticker div{display:inline-block;animation:tk 70s linear infinite;padding-left:100%}
+.ticker span{margin-right:48px}
+@keyframes tk{to{transform:translateX(-100%)}}
+
+/* hoy */
+.hoy{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-top:28px}
+.luz{border-radius:var(--radio);min-height:380px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;box-shadow:var(--sombra)}
+.luz::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 20%,rgba(5,12,24,.88))}
+.luz .t{position:relative;z-index:2;padding:22px}
+.luz .etiqueta{display:inline-block;background:var(--aurora);color:var(--tinta);font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.luz h3{font-size:38px;margin:8px 0 6px}
+.luz p{opacity:.92;max-width:520px}
+.tarjetas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dato{background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 16px rgba(10,20,34,.07);display:flex;flex-direction:column;gap:4px}
+.dato small{color:var(--gris);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.dato b{font:800 32px "Barlow Condensed";color:var(--noche)}
+.dato span{font-size:14px;color:#33465a}
+.dato.alerta{background:#fff1ec;border:1.5px solid var(--rojo)}
+.dato.alerta b{color:var(--rojo)}
+.actualizar{margin-top:14px}
+@media(max-width:860px){.hoy{grid-template-columns:1fr}.luz{min-height:300px}}
+
+/* sí / pero */
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.lado{border-radius:var(--radio);padding:24px;box-shadow:var(--sombra)}
+.lado.si{background:var(--noche);color:#fff}
+.lado.pero{background:#fff;border-top:6px solid var(--rojo)}
+.lado h3{font-size:30px;margin-bottom:10px}
+.lado.si h3{color:var(--aurora)}
+.lado.pero h3{color:var(--rojo)}
+.lado ul{list-style:none;display:grid;gap:10px}
+.lado li{padding-left:18px;position:relative;font-size:16px}
+.lado li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:currentColor;opacity:.6}
+@media(max-width:860px){.dos{grid-template-columns:1fr}}
+
+/* pasos */
+.pasos{counter-reset:p;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:26px}
+.paso{background:#fff;border-radius:16px;padding:18px 18px 18px 64px;position:relative;box-shadow:0 4px 16px rgba(10,20,34,.06)}
+.paso::before{counter-increment:p;content:counter(p);position:absolute;left:16px;top:16px;width:36px;height:36px;border-radius:50%;background:var(--noche);color:var(--aurora);font:800 19px "Barlow Condensed";display:grid;place-items:center}
+.paso h3{font-size:21px;color:var(--noche);margin-bottom:4px}
+.paso p{font-size:15px;color:#33465a}
+.aviso{margin-top:20px;background:#fff8e6;border:1.5px solid var(--oro);border-radius:14px;padding:14px 16px;font-size:15px}
+
+/* trabajo */
+.oscuro{background:var(--noche);color:#fff}
+.oscuro h2{color:#fff}
+.oscuro .lead{color:rgba(255,255,255,.82)}
+.calc{display:grid;grid-template-columns:1fr 1.1fr;gap:0;margin-top:26px;background:#fff;color:var(--tinta);border-radius:var(--radio);overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.calc .foto{min-height:320px;position:relative}
+.calc .foto span{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font:800 28px "Barlow Condensed"}
+.calc .in{padding:24px;display:flex;flex-direction:column;gap:12px}
+.calc label{font-weight:700;font-size:15px}
+.calc input[type=range]{width:100%;accent-color:var(--rojo)}
+.calc input[type=number]{font:800 30px "Barlow Condensed";border:2px solid #d5e0ea;border-radius:12px;padding:6px 12px;width:100%;color:var(--noche)}
+.filas{display:grid;gap:6px}
+.filas div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #d5e0ea;padding:6px 0;font-size:15px}
+.filas div b{font-weight:800}
+.neto{background:var(--hielo);border-radius:14px;padding:14px 16px}
+.neto b{display:block;font:800 40px "Barlow Condensed";color:var(--noche)}
+.neto span{color:var(--gris);font-weight:600}
+.peq{font-size:13px;color:var(--gris)}
+@media(max-width:860px){.calc{grid-template-columns:1fr}.calc .foto{min-height:220px}}
+.sectores{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:22px}
+.sector{border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:16px}
+.sector h3{font-size:22px;color:var(--aurora2);margin-bottom:4px}
+.sector p{font-size:15px;opacity:.88}
+
+/* grid de tarjetas */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:30px}
+.card{background:#fff;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);display:flex;flex-direction:column;transition:transform .25s}
+.card:hover{transform:translateY(-4px)}
+.card .foto{height:180px;position:relative}
+.card .foto em{position:absolute;top:12px;left:12px;font-style:normal;background:var(--oro);color:var(--tinta);font-weight:800;font-size:12px;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px}
+.card .in{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:25px;color:var(--noche)}
+.card p{color:#33465a;font-size:15.5px}
+
+/* osos */
+.osos{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center}
+.osos .img{border-radius:var(--radio);min-height:440px;box-shadow:var(--sombra);position:relative;overflow:hidden}
+.osos .img a{position:absolute;left:14px;bottom:14px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:5px 10px;border-radius:8px;text-decoration:none}
+.reglas{display:grid;gap:10px;margin-top:16px}
+.regla{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:14px;padding:14px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+.regla b{font:800 30px "Barlow Condensed";color:var(--rojo);min-width:82px;line-height:1}
+.regla span{font-size:15px}
+.emerg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.emerg a{background:var(--noche);color:#fff;border-radius:14px;padding:14px;text-decoration:none;text-align:center}
+.emerg a b{display:block;font:800 36px "Barlow Condensed";color:var(--aurora)}
+@media(max-width:860px){.osos{grid-template-columns:1fr}.osos .img{min-height:300px}}
+
+/* lugares */
+.lugares{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:220px;gap:12px;margin-top:28px}
+.lugar{position:relative;border-radius:16px;overflow:hidden;color:#fff;text-decoration:none}
+.lugar .foto{position:absolute;inset:0;transition:transform .8s}
+.lugar:hover .foto{transform:scale(1.07)}
+.lugar .t{position:absolute;inset:auto 0 0 0;padding:40px 14px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.lugar h3{font-size:26px}
+.lugar p{font-size:14px;opacity:.92}
+.lugar:nth-child(1){grid-column:span 3;grid-row:span 2}
+.lugar:nth-child(2),.lugar:nth-child(3){grid-column:span 3}
+.lugar:nth-child(n+4){grid-column:span 2}
+@media(max-width:760px){.lugares{grid-template-columns:1fr;grid-auto-rows:230px}.lugar:nth-child(n){grid-column:auto;grid-row:auto}}
+
+/* conversor */
+.conv{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:20px;background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 16px rgba(10,20,34,.06)}
+.conv input{font:800 26px "Barlow Condensed";border:2px solid #d5e0ea;border-radius:12px;padding:6px 12px;width:170px}
+.conv .r{display:flex;flex-wrap:wrap;gap:10px}
+.conv .r div{background:var(--hielo);border-radius:12px;padding:8px 14px;font-weight:700}
+.conv .r div b{font:800 24px "Barlow Condensed";color:var(--noche);margin-right:4px}
+
+/* checklist */
+.check{display:grid;gap:10px;margin-top:24px;max-width:840px}
+.check label{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:12px;padding:13px 15px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.05);font-size:16px}
+.check input{width:22px;height:22px;accent-color:var(--rojo);flex-shrink:0;margin-top:1px}
+.check label.ok{opacity:.6;text-decoration:line-through}
+.barra{height:12px;background:#d5e0ea;border-radius:99px;overflow:hidden;margin-top:18px;max-width:840px}
+.barra i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--aurora),var(--rojo));transition:width .5s}
+
+/* videos */
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:24px}
+.vid{position:relative;border-radius:16px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;cursor:pointer;aspect-ratio:16/9}
+.vid .foto{position:absolute;inset:0}
+.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.82))}
+.vid b{position:relative;z-index:2;padding:14px;font:800 21px "Barlow Condensed"}
+.vid.abierto{cursor:default;flex-direction:column;align-items:stretch;background:#000}
+.vid.abierto::after{display:none}
+.vid iframe{width:100%;flex:1;border:0}
+.vid .yt{position:relative;z-index:2;background:var(--tinta);color:var(--aurora);font-weight:700;font-size:13px;padding:6px 10px;text-decoration:none}
+.vid .play{position:absolute;z-index:2;top:14px;right:14px;background:var(--rojo);font:800 12px Barlow;padding:5px 10px;border-radius:999px;letter-spacing:1px}
+
+/* serie */
+.serie{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.serie a{text-decoration:none;background:#fff;border:1.5px solid #d5e0ea;border-radius:999px;padding:10px 16px;font-weight:700;transition:all .2s}
+.serie a:hover{background:var(--noche);color:#fff;border-color:var(--noche)}
+.serie a.port{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
+footer{background:var(--tinta);color:rgba(255,255,255,.8);padding:40px 0 90px;font-size:14px}
+footer h3{color:#fff;font-size:22px;margin-bottom:8px}
+footer a{color:var(--aurora2)}
+footer ol{padding-left:18px;display:grid;gap:4px;margin:10px 0 20px}
+.copy{border-top:1px solid rgba(255,255,255,.15);padding-top:16px;margin-top:10px;font-weight:600;color:#fff}
+
+.wa{position:fixed;right:16px;bottom:16px;z-index:60;background:#1f8f4e;color:#fff;font-weight:800;text-decoration:none;padding:14px 20px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.3);animation:late 2.4s infinite}
+@keyframes late{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.instalar{position:fixed;left:16px;bottom:16px;z-index:60;display:none}
+.rev{opacity:0;transform:translateY(26px);transition:all .7s ease}
+.rev.vis{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="#inicio" class="marca">SVALBARD <b>PARA LATINOS</b></a>
+  <nav id="menu">
+    <a href="#hoy" data-k="nav0">Hoy</a>
+    <a href="#verdad" data-k="nav1">La verdad</a>
+    <a href="#papeles" data-k="nav2">Papeles</a>
+    <a href="#trabajo" data-k="nav3">Trabajo y plata</a>
+    <a href="#vivir" data-k="nav4">Vivir allá</a>
+    <a href="#osos" data-k="nav5">Osos y seguridad</a>
+    <a href="#ver" data-k="nav6">Qué ver</a>
+    <a href="#plan" data-k="nav7">Mi plan</a>
+  </nav>
+  <div class="lang"><button id="bES" class="on">ES</button><button id="bEN">EN</button></div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="slides" id="slides"></div>
+  <div class="wrap">
+    <h1><span data-k="hKick">La isla sin visa, a 1.300 km del Polo Norte</span>Svalbard<em data-k="hEm">para Latinos</em></h1>
+    <p data-k="hSub">Aquí cualquier persona del mundo puede vivir y trabajar sin visa. Pero hay osos polares, cuatro meses sin sol y nadie te mantiene. Te contamos todo, con datos de 2026.</p>
+    <div class="btns">
+      <a class="btn rojo" href="#verdad" data-k="hBtn1">¿Es verdad lo de sin visa?</a>
+      <a class="btn claro" href="#hoy" data-k="hBtn2">Cómo está Svalbard hoy</a>
+    </div>
+    <div class="puntos" id="puntos"></div>
+  </div>
+  <a class="pie-foto" id="pieFoto" target="_blank" rel="noopener"></a>
+</section>
+
+<div class="franja">
+  <div class="wrap">
+    <div class="c"><b id="hLyr">--:--</b><small data-k="fr1">Hora en Longyearbyen</small></div>
+    <div class="c"><b id="hCol">--:--</b><small data-k="fr2">Hora en Colombia (Bogotá)</small></div>
+    <div class="c"><b id="fTemp">--</b><small><i class="vivo"></i><span data-k="fr3">Temperatura ahora en Longyearbyen</span></small></div>
+    <div class="c"><b id="fSol">--</b><small data-k="fr4">días para que el sol vuelva al pueblo (8 de marzo)</small></div>
+  </div>
+</div>
+
+<div class="ticker"><div id="ticker"></div></div>
+
+<!-- HOY -->
+<section id="hoy">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" data-k="hoKick">Se actualiza cada vez que entras</span>
+      <h2 data-k="hoT">Hoy en Svalbard</h2>
+      <p class="lead" id="hoyFecha"></p>
+    </div>
+    <div class="hoy">
+      <div class="luz foto rev" id="luzFoto">
+        <div class="t"><span class="etiqueta" id="luzEt"></span><h3 id="luzT"></h3><p id="luzP"></p></div>
+      </div>
+      <div class="rev">
+        <div class="tarjetas">
+          <div class="dato"><small data-k="d1">Sensación térmica</small><b id="dSens">--</b><span id="dCielo">--</span></div>
+          <div class="dato"><small data-k="d2">Viento</small><b id="dViento">--</b><span data-k="d2b">El viento hace sentir mucho más frío</span></div>
+          <div class="dato"><small data-k="d3">1 corona noruega hoy</small><b id="dCop">--</b><span id="dUsd">--</span></div>
+          <div class="dato alerta"><small data-k="d4">Agua de la llave</small><b data-k="d4b">No tomarla</b><span data-k="d4c">El concejo recomienda no beberla; agua gratis en la tienda Svalbardbutikken.</span></div>
+        </div>
+        <button class="btn noche actualizar" id="btnAct" data-k="btnAct">Actualizar ahora</button>
+        <p class="peq" id="actHora" style="margin-top:8px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LA VERDAD -->
+<section id="verdad" class="hielo">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" data-k="veKick">Lo que no te cuentan en los videos</span>
+      <h2 data-k="veT">Sí se puede vivir sin visa. Pero ojo con esto.</h2>
+      <p class="lead" data-k="veP">El Tratado de Svalbard da a los ciudadanos de los países firmantes el mismo derecho a vivir allí que a los noruegos. Por eso la ley de extranjería de Noruega no se aplica en las islas. Eso es real. Lo que muchos videos no dicen es lo difícil que es quedarse.</p>
+    </div>
+    <div class="dos">
+      <div class="lado si rev"><h3 data-k="siT">Lo bueno</h3><ul id="listaSi"></ul></div>
+      <div class="lado pero rev"><h3 data-k="peT">Lo que tienes que saber</h3><ul id="listaPero"></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAPELES -->
+<section id="papeles">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" data-k="paKick">Papeles</span>
+      <h2 data-k="paT">Paso a paso para llegar y quedarte</h2>
+      <p class="lead" data-k="paP">No hay visa de Svalbard, pero sí hay trámites. Este es el orden que recomiendan el Sysselmester (la gobernación) y el concejo de Longyearbyen.</p>
+    </div>
+    <div class="pasos" id="pasos"></div>
+    <div class="aviso" data-k="paAviso">Esto es información general, no asesoría legal. Las reglas pueden cambiar. Antes de viajar escribe al Sysselmester (visum@sysselmesteren.no) y revisa la página de la UDI para tu nacionalidad.</div>
+  </div>
+</section>
+
+<!-- TRABAJO -->
+<section id="trabajo" class="oscuro">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" style="color:var(--oro)" data-k="trKick">Trabajo y plata</span>
+      <h2 data-k="trT">Cuánto te queda del sueldo</h2>
+      <p class="lead" data-k="trP">Svalbard tiene sus propios impuestos, mucho más bajos que en Noruega continental: 8 % del sueldo y 22 % sobre lo que pase de 12 veces el valor base (1.638.588 coronas al año en 2026). Mueve el sueldo y mira cuánto te queda, en pesos y en dólares.</p>
+    </div>
+    <div class="calc rev">
+      <div class="foto" data-foto="calle"><span data-k="caPie">Vei 500, Longyearbyen, julio de 2026</span></div>
+      <div class="in">
+        <label for="sueldo" data-k="caL">Sueldo bruto al mes (coronas noruegas, NOK)</label>
+        <input type="number" id="sueldo" value="38000" min="0" step="500">
+        <input type="range" id="sueldoR" min="15000" max="150000" step="500" value="38000" aria-label="sueldo">
+        <div class="filas">
+          <div><span data-k="caF1">Impuesto de Svalbard (8 % / 22 %)</span><b id="cImp">--</b></div>
+          <div><span data-k="caF2">Aporte a la seguridad social (7,6 %)</span><b id="cTry">--</b></div>
+        </div>
+        <div class="neto"><span data-k="caN">Te queda al mes, aproximado</span><b id="cNeto">--</b><span id="cConv">--</span></div>
+        <p class="peq" data-k="caNota">Cálculo aproximado con las tasas de 2026 de la autoridad tributaria de Noruega. El aporte de 7,6 % aplica si quedas afiliado a la seguridad social noruega (lo normal si trabajas para una empresa noruega). No incluye deducciones personales. Si llegas directo del exterior, los primeros 5 años solo tributas en Svalbard por lo que ganes allí.</p>
+      </div>
+    </div>
+    <div class="rev" style="margin-top:34px">
+      <h3 style="font-size:30px" data-k="seT1">Dónde suele haber trabajo</h3>
+      <div class="sectores" id="sectores"></div>
+      <div class="aviso" style="color:var(--tinta)" data-k="trAviso">La mina de carbón 7, la última noruega, cerró en junio de 2025: ya no hay empleo minero. Consigue el contrato y la vivienda antes de comprar el tiquete. Busca en arbeidsplassen.nav.no, finn.no y en los grupos de Facebook de Longyearbyen. Ninguna agencia seria cobra por conseguirte trabajo allá.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VIVIR -->
+<section id="vivir">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" data-k="viKick">Vivir allá</span>
+      <h2 data-k="viT">La vida diaria en el pueblo más al norte</h2>
+      <p class="lead" data-k="viP">Longyearbyen tiene unos 2.600 habitantes de más de 50 nacionalidades. Así funcionan las cosas del día a día.</p>
+    </div>
+    <div class="grid" id="gridVivir"></div>
+    <div class="rev">
+      <h3 style="font-size:28px;margin-top:40px;color:var(--noche)" data-k="cvT">Convierte coronas a tu moneda</h3>
+      <div class="conv">
+        <label for="nok" style="font-weight:700">NOK</label>
+        <input type="number" id="nok" value="1000" min="0">
+        <div class="r" id="convR"></div>
+      </div>
+      <p class="peq" id="convFuente" style="margin-top:6px"></p>
+    </div>
+  </div>
+</section>
+
+<!-- OSOS -->
+<section id="osos" class="hielo">
+  <div class="wrap osos">
+    <div class="img foto rev" data-foto="oso"><a id="osoCred" target="_blank" rel="noopener">Andreas Weith · Wikimedia Commons</a></div>
+    <div class="rev">
+      <span class="kicker" data-k="osKick">Osos y seguridad</span>
+      <h2 data-k="osT">Hay más osos polares que gente. Y no es chiste.</h2>
+      <p class="lead" data-k="osP">Desde enero de 2025 rigen reglas ambientales más duras. Dentro del pueblo estás seguro; afuera, nunca sin protección o sin guía.</p>
+      <div class="reglas" id="reglas"></div>
+      <div class="emerg">
+        <a href="tel:112"><b>112</b><span data-k="em1">Policía (Sysselmester)</span></a>
+        <a href="tel:113"><b>113</b><span data-k="em2">Ambulancia</span></a>
+        <a href="tel:110"><b>110</b><span data-k="em3">Bomberos</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ VER -->
+<section id="ver">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" data-k="lgKick">Qué ver</span>
+      <h2 data-k="lgT">Lugares que tienes que conocer</h2>
+      <p class="lead" data-k="lgP">Toca cada foto para abrirla en el mapa.</p>
+    </div>
+    <div class="lugares" id="lugares"></div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section id="plan" class="hielo">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" data-k="plKick">Mi plan</span>
+      <h2 data-k="plT">Mi lista para irme a Svalbard</h2>
+      <p class="lead" data-k="plP">Marca lo que ya hiciste. Tu avance queda guardado en este teléfono.</p>
+    </div>
+    <div class="barra"><i id="barra"></i></div>
+    <p id="avance" style="margin-top:8px;font-weight:700;color:var(--noche)"></p>
+    <div class="check" id="check"></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="wrap">
+    <div class="rev">
+      <span class="kicker" data-k="vdKick">Videos</span>
+      <h2 data-k="vdT">Míralo con tus propios ojos</h2>
+      <p class="lead" data-k="vdP">Documentales en español, la vida diaria en la noche polar y auroras. Toca un video para verlo aquí mismo.</p>
+    </div>
+    <div class="vids" id="vids"></div>
+  </div>
+</section>
+
+<section class="hielo" style="padding:50px 0">
+  <div class="wrap">
+    <span class="kicker" data-k="srKick">Serie para Latinos</span>
+    <h2 data-k="srT">Otras ciudades de la serie</h2>
+    <div class="serie" id="serie"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h3 data-k="foT">Fuentes</h3>
+    <ol id="fuentes"></ol>
+    <p data-k="foFotos">Fotos: Wikimedia Commons, con licencias Creative Commons o dominio público. Toca el crédito de cada foto para ver su autor y su licencia. Clima: Open-Meteo. Monedas: ExchangeRate-API.</p>
+    <p style="margin-top:6px" data-k="foAct">Información revisada el 2 de noviembre de 2026 (hora de Colombia).</p>
+    <p class="copy">Desarrollada por Vibras Positivas HM — Derechos de Autor Reservados · Caucasia, Antioquia</p>
+  </div>
+</footer>
+
+<a class="wa" id="wa" target="_blank" rel="noopener" data-k="waBtn">Escríbenos por WhatsApp</a>
+<button class="btn noche instalar" id="instalar" data-k="instalar">Instalar app</button>
+
+<script>
+/* ---------- FOTOS REALES (Wikimedia Commons) ---------- */
+const F = {
+  aurora:"Svalbard DSCF1400 (23849118591).jpg",
+  casas:"Longyearbyen colourful homes.jpg",
+  oso:"Polar bear (Ursus maritimus) in the drift ice region north of Svalbard.jpg",
+  osa:"Female polar bear (Ursus maritimus) with cub, Svalbard.jpg",
+  boveda:"Svalbard Global Seed Vault (23273281972).jpg",
+  noche:"Night Longyearbyen.jpg",
+  calle:"Longyearbyen, Vei 500, Svalbard, July 2026.jpg",
+  centro:"LongyearbyenDowntown.jpg",
+  iglesia:"Longyearbyen-Church-2006.jpg",
+  reno:"SvalbardReindeer.jpg",
+  zorro:"Lis polarny, Svalbard 2010.jpg",
+  perros:"Adventdalen hundespann IMG 2801.jpg",
+  valle:"Adventdalen IMG 4423 Hallwylfjellet.JPG",
+  piramiden:"Pyramiden settlement Svalbard.jpg",
+  mina:"Gruve 7 og Adventdalen, Svalbard.jpg",
+  unis:"Longyearbyen UNIS.JPG",
+  museo:"Museum PolarBear.JPG",
+  skj:"Svalbard Skjæringa IMG 2606 Longyearbyen.JPG"
+};
+const CRED = {oso:"Andreas Weith"};
+const img = (k,w=1400)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(F[k].replace(/ /g,"_"))+"?width="+w;
+const pagina = k=>"https://commons.wikimedia.org/wiki/File:"+encodeURIComponent(F[k].replace(/ /g,"_"));
+function ponerFoto(el,k,w){ if(!el||!F[k]) return; el.style.backgroundImage="url('fotos/"+k+".jpg'), url('"+img(k,w)+"'), linear-gradient(135deg,#13304f,#2b6a8f)"; }
+
+/* ---------- IDIOMA ---------- */
+let L = "es";
+try{ L = localStorage.getItem("svalbard_lang") || "es"; }catch(e){}
+const t = o => (o && typeof o==="object" && !Array.isArray(o)) ? (o[L]||o.es) : o;
+const fmt = (n,d=0)=>Number(n).toLocaleString(L==="en"?"en-US":"es-CO",{maximumFractionDigits:d,minimumFractionDigits:d});
+
+const T = {
+ nav0:{en:"Today"},nav1:{en:"The truth"},nav2:{en:"Papers"},nav3:{en:"Work & money"},nav4:{en:"Living there"},nav5:{en:"Bears & safety"},nav6:{en:"What to see"},nav7:{en:"My plan"},
+ hKick:{en:"The visa-free island, 1,300 km from the North Pole"},hEm:{en:"for Latinos"},
+ hSub:{en:"Here anyone in the world can live and work without a visa. But there are polar bears, four months without sun and nobody supports you. We tell you everything, with 2026 data."},
+ hBtn1:{en:"Is the no-visa thing true?"},hBtn2:{en:"How Svalbard is today"},
+ fr1:{en:"Time in Longyearbyen"},fr2:{en:"Time in Colombia (Bogotá)"},fr3:{en:"Temperature now in Longyearbyen"},fr4:{en:"days until the sun returns to town (8 March)"},
+ hoKick:{en:"Updates every time you open it"},hoT:{en:"Today in Svalbard"},
+ d1:{en:"Feels like"},d2:{en:"Wind"},d2b:{en:"Wind makes it feel much colder"},d3:{en:"1 Norwegian krone today"},
+ d4:{en:"Tap water"},d4b:{en:"Don't drink it"},d4c:{en:"The council advises not to drink it; free water at the Svalbardbutikken store."},
+ btnAct:{en:"Update now"},
+ veKick:{en:"What the videos don't tell you"},veT:{en:"Yes, you can live there without a visa. But watch out."},
+ veP:{en:"The Svalbard Treaty gives citizens of the signatory countries the same right to live there as Norwegians. That is why Norway's immigration law does not apply on the islands. That part is real. What many videos skip is how hard it is to stay."},
+ siT:{en:"The good part"},peT:{en:"What you need to know"},
+ paKick:{en:"Papers"},paT:{en:"Step by step to arrive and stay"},
+ paP:{en:"There is no Svalbard visa, but there are procedures. This is the order recommended by the Sysselmester (the governor) and Longyearbyen council."},
+ paAviso:{en:"This is general information, not legal advice. Rules can change. Before you travel, write to the Sysselmester (visum@sysselmesteren.no) and check the UDI website for your nationality."},
+ trKick:{en:"Work and money"},trT:{en:"How much of your salary you keep"},
+ trP:{en:"Svalbard has its own taxes, much lower than mainland Norway: 8% of salary and 22% on whatever exceeds 12 times the base amount (NOK 1,638,588 a year in 2026). Move the salary and see what you keep, in pesos and dollars."},
+ caPie:{en:"Vei 500, Longyearbyen, July 2026"},caL:{en:"Gross monthly salary (Norwegian kroner, NOK)"},
+ caF1:{en:"Svalbard tax (8% / 22%)"},caF2:{en:"Social security contribution (7.6%)"},caN:{en:"You keep per month, approx."},
+ caNota:{en:"Approximate calculation with the 2026 rates of the Norwegian Tax Administration. The 7.6% contribution applies if you are covered by Norwegian national insurance (normal if you work for a Norwegian company). Personal deductions not included. If you arrive straight from abroad, for the first 5 years you are only taxed in Svalbard on what you earn there."},
+ seT1:{en:"Where the jobs usually are"},
+ trAviso:{en:"Mine 7, Norway's last coal mine, closed in June 2025: there are no mining jobs anymore. Get the contract and housing before you buy the ticket. Search arbeidsplassen.nav.no, finn.no and Longyearbyen's Facebook groups. No serious agency charges you to get a job there."},
+ viKick:{en:"Living there"},viT:{en:"Daily life in the northernmost town"},
+ viP:{en:"Longyearbyen has about 2,600 residents from more than 50 nationalities. This is how everyday things work."},
+ cvT:{en:"Convert kroner to your currency"},
+ osKick:{en:"Bears and safety"},osT:{en:"There are more polar bears than people. No joke."},
+ osP:{en:"Stricter environmental rules have applied since January 2025. Inside town you are safe; outside, never without protection or a guide."},
+ em1:{en:"Police (Sysselmester)"},em2:{en:"Ambulance"},em3:{en:"Fire"},
+ lgKick:{en:"What to see"},lgT:{en:"Places you have to know"},lgP:{en:"Tap any photo to open it on the map."},
+ plKick:{en:"My plan"},plT:{en:"My checklist to move to Svalbard"},plP:{en:"Tick what you've done. Your progress is saved on this phone."},
+ vdKick:{en:"Videos"},vdT:{en:"See it with your own eyes"},vdP:{en:"Documentaries in Spanish, daily life in the polar night and northern lights. Tap a video to watch it right here."},
+ srKick:{en:"Latinos series"},srT:{en:"Other cities in the series"},
+ foT:{en:"Sources"},foFotos:{en:"Photos: Wikimedia Commons, under Creative Commons licenses or public domain. Tap each photo credit to see its author and license. Weather: Open-Meteo. Currencies: ExchangeRate-API."},
+ foAct:{en:"Information checked on 2 November 2026 (Colombia time)."},
+ waBtn:{en:"Message us on WhatsApp"},instalar:{en:"Install app"}
+};
+const base = {};
+document.querySelectorAll("[data-k]").forEach(el=>{ base[el.dataset.k]=el.innerHTML; });
+function textos(){
+  document.documentElement.lang=L;
+  document.querySelectorAll("[data-k]").forEach(el=>{
+    const k=el.dataset.k; el.innerHTML = (L==="en" && T[k] && T[k].en) ? T[k].en : base[k];
+  });
+  document.getElementById("bES").classList.toggle("on",L==="es");
+  document.getElementById("bEN").classList.toggle("on",L==="en");
+  pintarTodo();
+}
+function cambiar(l){ L=l; try{localStorage.setItem("svalbard_lang",l)}catch(e){} textos(); }
+document.getElementById("bES").onclick=()=>cambiar("es");
+document.getElementById("bEN").onclick=()=>cambiar("en");
+
+/* ---------- DATOS ---------- */
+const HERO = [
+  {k:"aurora", c:{es:"Aurora boreal sobre Longyearbyen",en:"Northern lights over Longyearbyen"}},
+  {k:"casas", c:{es:"Las casas de colores de Longyearbyen",en:"Longyearbyen's colourful houses"}},
+  {k:"osa", c:{es:"Osa polar con su cría, estrecho de Hinlopen",en:"Polar bear mother and cub, Hinlopen Strait"}},
+  {k:"boveda", c:{es:"La Bóveda Global de Semillas en la noche polar",en:"The Global Seed Vault in the polar night"}},
+  {k:"noche", c:{es:"La luz azul de la noche polar en Nybyen",en:"The blue light of the polar night in Nybyen"}}
+];
+
+const TICKER = [
+ {es:"Cualquier persona puede vivir y trabajar en Svalbard sin visa",en:"Anyone can live and work in Svalbard without a visa"},
+ {es:"Pero hay que llegar con trabajo, vivienda y plata: allá no hay ayudas sociales",en:"But you must arrive with a job, housing and money: there is no social welfare"},
+ {es:"El sol se ocultó el 26 de octubre y vuelve a verse en el pueblo el 8 de marzo",en:"The sun set on 26 October and is seen in town again on 8 March"},
+ {es:"Agua de la llave: el concejo recomienda no tomarla",en:"Tap water: the council advises not to drink it"},
+ {es:"Fuera del pueblo es obligatorio ir protegido contra osos polares",en:"Outside town, polar bear protection is mandatory"},
+ {es:"Impuesto de Svalbard: 8 % del sueldo",en:"Svalbard tax: 8% of salary"},
+ {es:"Si necesitas visa Schengen para Noruega, la necesitas también para ir y volver",en:"If you need a Schengen visa for Norway, you also need it to go and come back"}
+];
+
+const SI = [
+ {es:"No necesitas visa ni permiso de trabajo o residencia para vivir en Svalbard, sin importar tu nacionalidad.",en:"You need no visa, work or residence permit to live in Svalbard, whatever your nationality."},
+ {es:"Impuestos bajos: 8 % del sueldo (22 % solo sobre ingresos muy altos).",en:"Low taxes: 8% of salary (22% only on very high income)."},
+ {es:"No se paga IVA, así que muchas cosas salen más baratas que en Noruega continental.",en:"No VAT, so many things are cheaper than on mainland Norway."},
+ {es:"Comunidad muy internacional: más de 50 nacionalidades en un pueblo de unos 2.600 habitantes.",en:"Very international community: more than 50 nationalities in a town of about 2,600."},
+ {es:"Auroras, sol de medianoche, glaciares y naturaleza que no hay en otro lugar.",en:"Northern lights, midnight sun, glaciers and nature like nowhere else."}
+];
+const PERO = [
+ {es:"Debes poder mantenerte tú y tu familia. No hay servicios sociales y el Sysselmester puede rechazar o expulsar a quien no tenga cómo vivir.",en:"You must be able to support yourself and your family. There are no social services and the Sysselmester can reject or expel anyone without means."},
+ {es:"Vivir en Svalbard no da residencia ni nacionalidad noruega, por muchos años que estés.",en:"Living in Svalbard gives no Norwegian residence or citizenship, however many years you stay."},
+ {es:"Casi toda la vivienda es de las empresas: si pierdes el trabajo, pierdes la casa.",en:"Almost all housing belongs to employers: lose the job, lose the home."},
+ {es:"El hospital es de urgencias. No hay partos, ni salud mental, ni tratamiento de enfermedades crónicas: todo eso es en Tromsø.",en:"The hospital is urgent care. No births, no mental health, no chronic treatment: all that is in Tromsø."},
+ {es:"No hay servicios para personas con discapacidad ni para adultos mayores.",en:"No services for people with disabilities or for the elderly."},
+ {es:"Los extranjeros no votan en las elecciones locales salvo que hayan vivido 3 años legalmente en Noruega continental.",en:"Foreigners can't vote in local elections unless they lived legally for 3 years on mainland Norway."}
+];
+
+const PASOS = [
+ {h:{es:"Pasaporte vigente",en:"Valid passport"},p:{es:"Todos deben mostrar pasaporte al entrar y salir de Svalbard. Solo los europeos de Schengen y nórdicos pueden usar cédula.",en:"Everyone must show a passport entering and leaving Svalbard. Only Schengen and Nordic citizens may use an ID card."}},
+ {h:{es:"Visa Schengen si tu país la pide",en:"Schengen visa if your country needs one"},p:{es:"Todos los vuelos pasan por Oslo o Tromsø. Colombia, México, Perú, Chile, Argentina, Brasil y Venezuela, entre otros, no piden visa Schengen para estancias cortas. Si tu país sí la pide (por ejemplo Ecuador, Bolivia, Cuba o República Dominicana), necesitas una de dos o más entradas, porque Svalbard está fuera de Schengen y al volver entras de nuevo.",en:"All flights go via Oslo or Tromsø. Colombia, Mexico, Peru, Chile, Argentina, Brazil and Venezuela, among others, need no Schengen visa for short stays. If your country does (for example Ecuador, Bolivia, Cuba or the Dominican Republic), you need a double or multiple-entry visa, because Svalbard is outside Schengen and you re-enter on the way back."}},
+ {h:{es:"Trabajo y vivienda antes de viajar",en:"Job and housing before you travel"},p:{es:"Es la recomendación oficial: necesitas cómo mantenerte y dónde vivir. Sin trabajo es casi imposible conseguir casa.",en:"That's the official advice: you need a way to support yourself and somewhere to live. Without a job, housing is almost impossible."}},
+ {h:{es:"Número D en 8 días",en:"D-number within 8 days"},p:{es:"Si vas a quedarte 6 meses o más, pide cita en la oficina de impuestos de Svalbard (Skatteetaten) dentro de los 8 días de llegar. Lleva el pasaporte. Sin número D no puedes trabajar.",en:"If you'll stay 6 months or more, book an appointment at the Svalbard tax office (Skatteetaten) within 8 days of arrival. Bring your passport. Without a D-number you can't work."}},
+ {h:{es:"Registro de población",en:"Population register"},p:{es:"Svalbard tiene su propio registro de residentes. Al registrarte puedes pedir certificados de residencia en línea.",en:"Svalbard has its own resident register. Once registered you can order residence certificates online."}},
+ {h:{es:"Cuenta bancaria",en:"Bank account"},p:{es:"El único banco ya no tiene sucursal: hace visitas con cita que anuncia por Facebook. Pide pasaporte, número D, dirección y contrato.",en:"The only bank no longer has a branch: it visits by appointment announced on Facebook. It asks for passport, D-number, address and contract."}},
+ {h:{es:"Seguro de salud",en:"Health insurance"},p:{es:"Svalbard en general no está cubierto por el seguro nacional noruego. Los empleados de tiempo completo de empresas noruegas suelen estarlo; si no, saca un seguro internacional privado.",en:"Svalbard is generally not covered by Norwegian national insurance. Full-time employees of Norwegian companies usually are; otherwise get private international insurance."}},
+ {h:{es:"Licencia de conducir",en:"Driving licence"},p:{es:"Puedes manejar si tu país firmó la Convención de Ginebra de 1949 o la de Viena de 1968. El permiso internacional no sirve allá. Revisa tu país antes de llegar.",en:"You can drive if your country signed the 1949 Geneva or 1968 Vienna Convention. The International Driving Permit isn't valid there. Check your country before arriving."}}
+];
+
+const SECTORES = [
+ {h:{es:"Turismo",en:"Tourism"},p:{es:"Hoteles, guías, excursiones en moto de nieve, trineos de perros y barcos. Es hoy la principal fuente de ingresos.",en:"Hotels, guides, snowmobile, dog-sled and boat tours. It's now the main source of income."}},
+ {h:{es:"Restaurantes y cocina",en:"Restaurants and kitchens"},p:{es:"Cocina, meseros, lavaplatos y barra, sobre todo en temporada alta (marzo a agosto).",en:"Cooks, waiters, dishwashers and bar staff, especially in peak season (March to August)."}},
+ {h:{es:"Aseo y mantenimiento",en:"Cleaning and maintenance"},p:{es:"Hoteles, alojamientos y edificios. Muchas veces es la puerta de entrada para quien no habla noruego.",en:"Hotels, lodgings and buildings. Often the way in for people who don't speak Norwegian."}},
+ {h:{es:"Comercio",en:"Retail"},p:{es:"El supermercado, tiendas de ropa de montaña y de recuerdos.",en:"The supermarket, outdoor-gear and souvenir shops."}},
+ {h:{es:"Ciencia",en:"Science"},p:{es:"UNIS (el centro universitario) y las estaciones de investigación contratan técnicos y personal de apoyo.",en:"UNIS (the university centre) and research stations hire technicians and support staff."}},
+ {h:{es:"Trabajo remoto",en:"Remote work"},p:{es:"Si tu cliente o empresa está fuera, puedes vivir allá si demuestras ingresos suficientes y consigues vivienda.",en:"If your client or employer is abroad, you can live there if you prove enough income and find housing."}}
+];
+
+const VIVIR = [
+ {k:"casas",tag:{es:"Vivienda",en:"Housing"},h:{es:"Casa: el reto más grande",en:"Housing: the biggest challenge"},p:{es:"La mayoría de las viviendas las dan los empleadores y hay muy poco arriendo privado. Los avisos salen en el grupo de Facebook \"Kjøp/salg Longyearbyen\".",en:"Most housing is provided by employers and there is very little private rental. Ads appear in the Facebook group \"Kjøp/salg Longyearbyen\"."}},
+ {k:"skj",tag:{es:"Agua",en:"Water"},h:{es:"El agua de la llave no se toma",en:"Don't drink the tap water"},p:{es:"El deshielo del permafrost subió el sulfato y el níquel en el lago Isdammen. Desde septiembre de 2025 recomiendan no beberla. Llena tus botellas gratis en Svalbardbutikken (purificada por ósmosis inversa).",en:"Thawing permafrost raised sulphate and nickel in Isdammen lake. Since September 2025 the advice is not to drink it. Fill your bottles for free at Svalbardbutikken (reverse-osmosis water)."}},
+ {k:"unis",tag:{es:"Salud",en:"Health"},h:{es:"Hospital de urgencias",en:"Urgent-care hospital"},p:{es:"Lo grave se manda a Tromsø. No se atienden partos: las embarazadas viajan al continente antes de dar a luz. Las recetas extranjeras no se despachan en la farmacia.",en:"Serious cases go to Tromsø. No births: pregnant women travel to the mainland before giving birth. Foreign prescriptions can't be filled at the pharmacy."}},
+ {k:"iglesia",tag:{es:"Colegio",en:"School"},h:{es:"Colegio en noruego",en:"School in Norwegian"},p:{es:"Solo para hijos de residentes registrados. Las clases son en noruego, con apoyo de idioma. Jardín de 1 a 6 años: las inscripciones cierran el 15 de marzo.",en:"Only for children of registered residents. Classes are in Norwegian, with language support. Kindergarten ages 1-6: applications close 15 March."}},
+ {k:"centro",tag:{es:"Compras",en:"Shopping"},h:{es:"Sin IVA, pero todo llega en barco o avión",en:"No VAT, but everything arrives by ship or plane"},p:{es:"Casi todo se paga con tarjeta o celular. Para comprar cerveza y licor se necesita la tarjeta de alcohol del Sysselmester; para vino no.",en:"Almost everything is paid by card or phone. To buy beer and spirits you need the Sysselmester's alcohol card; not for wine."}},
+ {k:"perros",tag:{es:"Idioma",en:"Language"},h:{es:"Aprende noruego",en:"Learn Norwegian"},p:{es:"No hay clases oficiales allá, pero Norsk Folkehjelp da cursos gratis y un café de idiomas cada semana. Con inglés te defiendes; con noruego consigues más.",en:"There are no official classes there, but Norsk Folkehjelp offers free courses and a weekly language café. English gets you by; Norwegian gets you further."}},
+ {k:"calle",tag:{es:"Transporte",en:"Transport"},h:{es:"42 km de carretera y nada más",en:"42 km of road and nothing else"},p:{es:"No hay carreteras entre los pueblos: se llega en barco, moto de nieve o avión. El bus del aeropuerto cuesta 110 coronas y para en todos los hoteles.",en:"No roads between settlements: you travel by boat, snowmobile or plane. The airport bus costs NOK 110 and stops at every hotel."}},
+ {k:"valle",tag:{es:"Clima",en:"Climate"},h:{es:"El lugar que más rápido se calienta",en:"The fastest-warming place"},p:{es:"Svalbard se calienta varias veces más rápido que el promedio del planeta. Eso trae derrumbes y avalanchas: el 28 de octubre de 2026 cerraron la vía 300 por caída de rocas.",en:"Svalbard is warming several times faster than the global average. That brings landslides and avalanches: on 28 October 2026 road 300 closed due to rockfall."}}
+];
+
+const REGLAS = [
+ {n:{es:"300 m",en:"300 m"},es:"Distancia mínima a un oso polar. De marzo a junio son 500 m. Está prohibido molestarlos, atraerlos o seguirlos.",en:"Minimum distance to a polar bear. From March to June it's 500 m. Disturbing, attracting or following them is banned."},
+ {n:{es:"Rifle",en:"Rifle"},es:"Fuera del pueblo es obligatorio llevar protección: rifle calibre .308 o mayor y pistola de bengalas. La licencia la da el Sysselmester.",en:"Outside town protection is mandatory: a .308 or larger rifle and a flare gun. The Sysselmester issues the licence."},
+ {n:{es:"Guía",en:"Guide"},es:"Si no tienes rifle ni experiencia, sal siempre con un guía autorizado.",en:"Without a rifle and experience, always go out with a licensed guide."},
+ {n:{es:"Drones",en:"Drones"},es:"Prohibidos en las áreas protegidas y cerca de los acantilados de aves en temporada.",en:"Banned in protected areas and near bird cliffs in season."},
+ {n:{es:"Flores",en:"Flowers"},es:"Es ilegal arrancar flores, dar comida a pájaros o zorros, o sembrar plantas afuera.",en:"It's illegal to pick flowers, feed birds or foxes, or grow plants outdoors."}
+];
+
+const LUGARES = [
+ {k:"boveda",q:"Svalbard Global Seed Vault",n:{es:"Bóveda Global de Semillas",en:"Global Seed Vault"},r:{es:"Guarda semillas de todo el mundo. Se ve por fuera; adentro no se entra.",en:"Stores seeds from the whole world. You see it from outside; you can't go in."}},
+ {k:"aurora",q:"Adventdalen Svalbard",n:{es:"Auroras en Adventdalen",en:"Aurora in Adventdalen"},r:{es:"En la noche polar hay auroras hasta de día.",en:"In the polar night there are auroras even at midday."}},
+ {k:"iglesia",q:"Svalbard kirke Longyearbyen",n:{es:"Iglesia de Svalbard",en:"Svalbard Church"},r:{es:"La iglesia más al norte del mundo, abierta a todos.",en:"The northernmost church in the world, open to all."}},
+ {k:"museo",q:"Svalbard Museum Longyearbyen",n:{es:"Museo de Svalbard",en:"Svalbard Museum"},r:{es:"Historia, cacería y vida ártica.",en:"History, trapping and Arctic life."}},
+ {k:"piramiden",q:"Pyramiden Svalbard",n:{es:"Pyramiden",en:"Pyramiden"},r:{es:"Pueblo minero soviético abandonado. Visit Svalbard ya no vende estos viajes.",en:"Abandoned Soviet mining town. Visit Svalbard no longer sells these trips."}},
+ {k:"mina",q:"Gruve 7 Adventdalen",n:{es:"Mina 7",en:"Mine 7"},r:{es:"La última mina noruega, cerrada en 2025.",en:"Norway's last mine, closed in 2025."}}
+];
+
+const CHECK = [
+ {es:"Revisar si mi pasaporte pide visa Schengen y sacarla si hace falta",en:"Check if my passport needs a Schengen visa and get it if needed"},
+ {es:"Conseguir un contrato de trabajo en Svalbard",en:"Get a job contract in Svalbard"},
+ {es:"Asegurar vivienda (por lo general la da el empleador)",en:"Secure housing (usually provided by the employer)"},
+ {es:"Ahorrar para mantenerme los primeros meses",en:"Save enough to support myself the first months"},
+ {es:"Sacar seguro de salud internacional si mi empleo no me cubre",en:"Get international health insurance if my job doesn't cover me"},
+ {es:"Comprar ropa de invierno de verdad (capas, botas, guantes)",en:"Buy real winter clothing (layers, boots, gloves)"},
+ {es:"Pedir el número D en Skatteetaten en mis primeros 8 días",en:"Apply for the D-number at Skatteetaten within my first 8 days"},
+ {es:"Abrir cuenta bancaria con cita",en:"Open a bank account by appointment"},
+ {es:"Empezar a aprender noruego",en:"Start learning Norwegian"},
+ {es:"Hacer el curso de seguridad y no salir del pueblo sin protección",en:"Take the safety course and never leave town unprotected"}
+];
+
+const VIDS = [
+ {id:"7LJya03vvxY",n:{es:"Svalbard: el documental (en español)",en:"Svalbard: the documentary (in Spanish)"}},
+ {id:"4zsKbNGMXIc",n:{es:"El pueblo más al norte del mundo (en español)",en:"The northernmost town in the world (in Spanish)"}},
+ {id:"KX_U7MF5PX4",n:{es:"Trabajos en Svalbard",en:"Svalbard jobs"}},
+ {id:"wZ1A-uIug9Q",n:{es:"Así empieza la noche polar",en:"Polar night begins"}},
+ {id:"UzlIxeigoMM",n:{es:"Caminata por Longyearbyen en la noche polar",en:"Polar night walk in Longyearbyen"}},
+ {id:"_POW8-jCpPk",n:{es:"Una noche bajo la aurora boreal",en:"A night under the northern lights"}}
+];
+
+const SERIE = [
+ ["latinos-por-el-mundo",{es:"Portada: Latinos por el mundo",en:"Home: Latinos around the world"},1],
+ ["londres-para-latinos","Londres"],["madrid-para-latinos","Madrid"],["bilbao-para-latinos","Bilbao"],["toledo-para-latinos","Toledo"],["getxo-para-latinos","Getxo"],
+ ["aldeas-de-espana-para-latinos",{es:"Aldeas de España",en:"Villages of Spain"}],
+ ["medellin-para-latinos","Medellín"],["miami-para-latinos","Miami"],["nueva-york-para-latinos",{es:"Nueva York",en:"New York"}],["leamington-para-latinos","Leamington"],
+ ["hamamatsu-para-latinos","Hamamatsu"],["oizumi-para-latinos","Oizumi"],
+ ["willemstad-para-latinos","Willemstad"],["cartagena-para-latinos","Cartagena"],["norcasia-para-latinos","Norcasia"],["cano-canoas-para-latinos","Caño Canoas"]
+];
+
+const FUENTES = [
+ ["Longyearbyen lokalstyre — For foreigners (feb 2026)","https://www.lokalstyre.no/engelsk/longyearbyen-local-council/services/resident-information/for-foreigners"],
+ ["Info Norden — Moving or travelling to Svalbard","https://www.norden.org/en/info-norden/moving-or-travelling-svalbard"],
+ ["Skatteetaten — Tax rates on Svalbard (2026)","https://www.skatteetaten.no/en/rates/tax-rates-on-svalbard"],
+ ["Skatteetaten — 12 G per 1 May 2026","https://www.skatteetaten.no/en/business-and-organisation/employer/the-a-melding/siste-fra-a-ordningen/oppdatert-grunnbelop-i-folketrygden-fra-1.-mai-2026/"],
+ ["Regjeringen — Endringer fra 1. januar 2026 (trygdeavgift 7,6 %)","https://www.regjeringen.no/no/dokument/lover_regler/endringer-i-lover-og-regler/endringer-i-lover-og-regler-fra-1.-januar-2026/id3141571/"],
+ ["Skatteetaten — Skattemelding for Svalbard","https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/svalbard/skattemelding/"],
+ ["Sysselmesteren — Nuevas reglas ambientales desde el 1 de enero de 2025","https://sysselmesteren.no/en/news/2024/12/new-environmental-regulations-enters-into-force-on-1-january"],
+ ["Longyearbyen lokalstyre — Water Quality Status (ago 2026)","https://www.lokalstyre.no/engelsk/longyearbyen-local-council/news-archive/news-front-page/2026-08-03-water-quality-status-in-longyearbyen"],
+ ["Gizmodo — Longyearbyen tap water undrinkable (oct 2026)","https://gizmodo.com/this-town-was-already-in-crisis-then-rapid-arctic-melting-starting-making-its-tap-water-undrinkable-2000827703"],
+ ["Longyearbyen lokalstyre — Noticias (oct 2026)","https://www.lokalstyre.no/engelsk/longyearbyen-local-council/news-archive"],
+ ["High North News — Cierra la última mina de carbón noruega","https://en.highnorthnews.com/business/end-of-norwegian-mining-on-svalbard-as-norways-last-coal-mine-closes/1110556"],
+ ["Visit Svalbard — Vuelos desde Oslo y Tromsø","https://www.visitsvalbard.com/en/Travel-to-Svalbard/"],
+ ["Avinor — Bus del aeropuerto de Svalbard","https://avinor.no/en/airport/svalbard/info/to-and-from-the-airport/"],
+ ["Visit Svalbard — Barentsburg y Pyramiden","https://en.visitsvalbard.com/inspiration/various/barentsburg-and-pyramiden"],
+ ["Spitsbergen-svalbard.com — Sol de medianoche y noche polar","https://www.spitsbergen-svalbard.com/spitsbergen-information/midnight-sun-polar-night.html"],
+ ["Embajada de Colombia en Noruega (Oslo)","http://noruega.embajada.gov.co"]
+];
+
+/* ---------- HERO ---------- */
+let hi=0;
+const sl=document.getElementById("slides"), pu=document.getElementById("puntos"), pie=document.getElementById("pieFoto");
+HERO.forEach((h,i)=>{
+  const d=document.createElement("div"); d.className="slide"; ponerFoto(d,h.k,1800); sl.appendChild(d);
+  const p=document.createElement("i"); p.onclick=()=>verSlide(i); pu.appendChild(p);
+});
+function verSlide(i){
+  hi=i; [...sl.children].forEach((s,j)=>s.classList.toggle("on",j===i)); [...pu.children].forEach((s,j)=>s.classList.toggle("on",j===i));
+  pie.textContent=(L==="en"?"Photo: ":"Foto: ")+t(HERO[i].c)+" · Wikimedia Commons"; pie.href=pagina(HERO[i].k);
+}
+setInterval(()=>verSlide((hi+1)%HERO.length),7000);
+
+/* ---------- RELOJES, LUZ Y SOL ---------- */
+const TZ_LYR="Europe/Oslo";
+function partes(tz){ const p={}; new Intl.DateTimeFormat("en-US",{timeZone:tz,year:"numeric",month:"numeric",day:"numeric"}).formatToParts(new Date()).forEach(x=>p[x.type]=+x.value||p[x.type]); return p; }
+function reloj(){
+  const o={hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false};
+  document.getElementById("hLyr").textContent=new Date().toLocaleTimeString("es-CO",{...o,timeZone:TZ_LYR});
+  document.getElementById("hCol").textContent=new Date().toLocaleTimeString("es-CO",{...o,timeZone:"America/Bogota"});
+}
+setInterval(reloj,1000); reloj();
+
+function diaDelAnio(m,d){ return Date.UTC(2001,m-1,d)/864e5; } // año sin bisiesto como referencia
+function estadoLuz(){
+  const p=partes(TZ_LYR), x=diaDelAnio(p.month,p.day), en=(a,b)=>{const A=diaDelAnio(...a),B=diaDelAnio(...b);return A<=B? (x>=A&&x<=B) : (x>=A||x<=B);};
+  if(en([4,19],[8,23])) return {k:"aurora",foto:"casas",et:{es:"Sol de medianoche",en:"Midnight sun"},h:{es:"Hoy el sol no se oculta",en:"Today the sun doesn't set"},p:{es:"Del 19 de abril al 23 de agosto hay luz las 24 horas. Lleva antifaz para dormir.",en:"From 19 April to 23 August there is light 24 hours a day. Bring a sleep mask."}};
+  if(en([11,11],[1,30])) return {foto:"noche",et:{es:"Noche polar",en:"Polar night"},h:{es:"Hoy no amanece",en:"No sunrise today"},p:{es:"Del 11 de noviembre al 30 de enero el sol está tan bajo que ni siquiera hay claridad de día. Es la mejor época para ver auroras.",en:"From 11 November to 30 January the sun is so low there isn't even daylight. Best time for northern lights."}};
+  if(en([10,26],[2,15])) return {foto:"aurora",et:{es:"Temporada oscura",en:"Dark season"},h:{es:"Hoy el sol no sale",en:"The sun doesn't rise today"},p:{es:"Del 26 de octubre al 15 de febrero el sol no pasa del horizonte. Al mediodía todavía hay una luz azul de crepúsculo.",en:"From 26 October to 15 February the sun stays below the horizon. Around midday there is still a blue twilight."}};
+  if(en([2,16],[3,7])) return {foto:"valle",et:{es:"Vuelve la luz",en:"Light returns"},h:{es:"El sol ya salió, pero las montañas lo tapan",en:"The sun is up, but the mountains hide it"},p:{es:"El 8 de marzo los rayos llegan al pueblo y se celebra la Semana del Sol.",en:"On 8 March the rays reach town and the Sun Festival week is celebrated."}};
+  return {foto:"valle",et:{es:"Días que cambian rápido",en:"Fast-changing days"},h:{es:"Días y noches normales",en:"Regular days and nights"},p:{es:"La duración del día cambia muchos minutos de un día para otro.",en:"Day length changes by many minutes from one day to the next."}};
+}
+function diasSol(){
+  const p=partes(TZ_LYR); let y=p.year; const hoy=Date.UTC(p.year,p.month-1,p.day);
+  let obj=Date.UTC(y,2,8); if(hoy>obj) obj=Date.UTC(y+1,2,8);
+  return Math.round((obj-hoy)/864e5);
+}
+
+/* ---------- CLIMA EN VIVO (Open-Meteo) ---------- */
+const CIELO={0:{es:"Despejado",en:"Clear"},1:{es:"Casi despejado",en:"Mostly clear"},2:{es:"Parcialmente nublado",en:"Partly cloudy"},3:{es:"Nublado",en:"Overcast"},45:{es:"Niebla",en:"Fog"},48:{es:"Niebla con escarcha",en:"Rime fog"},51:{es:"Llovizna",en:"Drizzle"},53:{es:"Llovizna",en:"Drizzle"},55:{es:"Llovizna fuerte",en:"Heavy drizzle"},61:{es:"Lluvia",en:"Rain"},63:{es:"Lluvia",en:"Rain"},65:{es:"Lluvia fuerte",en:"Heavy rain"},66:{es:"Lluvia helada",en:"Freezing rain"},67:{es:"Lluvia helada",en:"Freezing rain"},71:{es:"Nieve",en:"Snow"},73:{es:"Nieve",en:"Snow"},75:{es:"Nevada fuerte",en:"Heavy snow"},77:{es:"Granizo fino",en:"Snow grains"},80:{es:"Chubascos",en:"Showers"},81:{es:"Chubascos",en:"Showers"},82:{es:"Chubascos fuertes",en:"Heavy showers"},85:{es:"Chubascos de nieve",en:"Snow showers"},86:{es:"Chubascos de nieve",en:"Snow showers"},95:{es:"Tormenta",en:"Thunderstorm"}};
+let clima=null, tasas=null, actualizado=null;
+async function traerClima(){
+  try{
+    const r=await fetch("https://api.open-meteo.com/v1/forecast?latitude=78.2232&longitude=15.6267&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code&wind_speed_unit=kmh&timezone=Europe%2FOslo",{cache:"no-store"});
+    const j=await r.json(); clima=j.current; try{localStorage.setItem("svalbard_clima",JSON.stringify(clima))}catch(e){}
+  }catch(e){ try{clima=JSON.parse(localStorage.getItem("svalbard_clima"))}catch(_){} }
+}
+async function traerTasas(){
+  try{
+    const r=await fetch("https://open.er-api.com/v6/latest/NOK",{cache:"no-store"});
+    const j=await r.json(); if(j && j.rates){ tasas={r:j.rates,f:j.time_last_update_utc}; try{localStorage.setItem("svalbard_tasas",JSON.stringify(tasas))}catch(e){} }
+  }catch(e){ try{tasas=JSON.parse(localStorage.getItem("svalbard_tasas"))}catch(_){} }
+}
+async function actualizar(){
+  const b=document.getElementById("btnAct"); b.disabled=true; b.style.opacity=.6;
+  await Promise.all([traerClima(),traerTasas()]);
+  actualizado=new Date(); b.disabled=false; b.style.opacity=1;
+  pintarVivo(); calcular(); convertir();
+}
+
+function pintarVivo(){
+  const s=estadoLuz();
+  document.getElementById("luzEt").textContent=t(s.et);
+  document.getElementById("luzT").textContent=t(s.h);
+  document.getElementById("luzP").textContent=t(s.p);
+  ponerFoto(document.getElementById("luzFoto"),s.foto,1200);
+  const ds=diasSol(); document.getElementById("fSol").textContent=ds;
+  document.getElementById("hoyFecha").textContent=new Date().toLocaleDateString(L==="en"?"en-GB":"es-CO",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:TZ_LYR})+" · "+(L==="en"?"Longyearbyen time":"hora de Longyearbyen");
+  if(clima){
+    document.getElementById("fTemp").textContent=Math.round(clima.temperature_2m)+" °C";
+    document.getElementById("dSens").textContent=Math.round(clima.apparent_temperature)+" °C";
+    document.getElementById("dViento").textContent=Math.round(clima.wind_speed_10m)+" km/h";
+    document.getElementById("dCielo").textContent=t(CIELO[clima.weather_code]||{es:"—",en:"—"});
+  }else{
+    document.getElementById("dCielo").textContent=L==="en"?"No connection: try Update":"Sin conexión: toca Actualizar";
+  }
+  if(tasas){
+    document.getElementById("dCop").textContent=fmt(tasas.r.COP,0)+" COP";
+    document.getElementById("dUsd").textContent=fmt(tasas.r.USD,3)+" USD · "+fmt(tasas.r.EUR,3)+" EUR";
+  }
+  if(actualizado) document.getElementById("actHora").textContent=(L==="en"?"Updated at ":"Actualizado a las ")+actualizado.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit",timeZone:"America/Bogota"})+(L==="en"?" (Colombia time)":" (hora de Colombia)");
+}
+document.getElementById("btnAct").onclick=actualizar;
+
+/* ---------- CALCULADORA DE SUELDO ---------- */
+const DOCE_G=1638588, TRYGD=0.076;
+function calcular(){
+  const m=Math.max(0,+document.getElementById("sueldo").value||0), a=m*12;
+  const imp=Math.min(a,DOCE_G)*0.08+Math.max(0,a-DOCE_G)*0.22, tr=a*TRYGD, neto=(a-imp-tr)/12;
+  document.getElementById("cImp").textContent="− "+fmt(imp/12)+" NOK";
+  document.getElementById("cTry").textContent="− "+fmt(tr/12)+" NOK";
+  document.getElementById("cNeto").textContent=fmt(neto)+" NOK";
+  document.getElementById("cConv").textContent = tasas ? "≈ "+fmt(neto*tasas.r.COP)+" COP · "+fmt(neto*tasas.r.USD)+" USD" : (L==="en"?"Connect to see it in pesos and dollars":"Conéctate para verlo en pesos y dólares");
+}
+const sIn=document.getElementById("sueldo"), sR=document.getElementById("sueldoR");
+sIn.oninput=()=>{sR.value=sIn.value;calcular();};
+sR.oninput=()=>{sIn.value=sR.value;calcular();};
+
+/* ---------- CONVERSOR ---------- */
+function convertir(){
+  const n=+document.getElementById("nok").value||0, box=document.getElementById("convR");
+  if(!tasas){ box.innerHTML="<div>"+(L==="en"?"No rates yet: tap Update now":"Aún sin tasas: toca Actualizar ahora")+"</div>"; return; }
+  box.innerHTML=[["COP",0],["USD",2],["EUR",2],["MXN",2],["PEN",2]].map(([c,d])=>"<div><b>"+fmt(n*tasas.r[c],d)+"</b>"+c+"</div>").join("");
+  document.getElementById("convFuente").textContent=(L==="en"?"Rate updated: ":"Tasa actualizada: ")+tasas.f+" · ExchangeRate-API";
+}
+document.getElementById("nok").oninput=convertir;
+
+/* ---------- PINTAR ---------- */
+function pintarTodo(){
+  document.getElementById("ticker").innerHTML=[...TICKER,...TICKER].map(x=>"<span>"+t(x)+"</span>").join("");
+  verSlide(hi);
+  document.getElementById("listaSi").innerHTML=SI.map(x=>"<li>"+t(x)+"</li>").join("");
+  document.getElementById("listaPero").innerHTML=PERO.map(x=>"<li>"+t(x)+"</li>").join("");
+  document.getElementById("pasos").innerHTML=PASOS.map(p=>`<div class="paso rev"><h3>${t(p.h)}</h3><p>${t(p.p)}</p></div>`).join("");
+  document.getElementById("sectores").innerHTML=SECTORES.map(s=>`<div class="sector"><h3>${t(s.h)}</h3><p>${t(s.p)}</p></div>`).join("");
+  document.getElementById("gridVivir").innerHTML=VIVIR.map(v=>`
+   <article class="card rev"><div class="foto" data-foto="${v.k}"><em>${t(v.tag)}</em></div>
+    <div class="in"><h3>${t(v.h)}</h3><p>${t(v.p)}</p></div></article>`).join("");
+  document.getElementById("reglas").innerHTML=REGLAS.map(r=>`<div class="regla"><b>${t(r.n)}</b><span>${L==="en"?r.en:r.es}</span></div>`).join("");
+  document.getElementById("osoCred").href=pagina("oso");
+  document.getElementById("lugares").innerHTML=LUGARES.map(p=>`
+    <a class="lugar rev" href="https://www.google.com/maps/search/${encodeURIComponent(p.q)}" target="_blank" rel="noopener">
+     <div class="foto" data-foto="${p.k}"></div><div class="t"><h3>${t(p.n)}</h3><p>${t(p.r)}</p></div></a>`).join("");
+  pintarCheck();
+  document.getElementById("vids").innerHTML=VIDS.map(v=>`
+    <div class="vid rev" data-id="${v.id}" role="button" tabindex="0">
+     <div class="foto" style="background-image:url('https://i.ytimg.com/vi/${v.id}/hqdefault.jpg'),linear-gradient(135deg,#13304f,#2b6a8f)"></div>
+     <span class="play">${L==="en"?"PLAY":"VER VIDEO"}</span><b>${t(v.n)}</b></div>`).join("");
+  document.querySelectorAll(".vid").forEach(el=>{
+    const abrir=()=>{ if(el.classList.contains("abierto")) return; el.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${el.dataset.id}?autoplay=1&rel=0" title="video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe><a class="yt" href="https://www.youtube.com/watch?v=${el.dataset.id}" target="_blank" rel="noopener">${L==="en"?"Open on YouTube":"Abrir en YouTube"}</a>`; el.classList.add("abierto"); };
+    el.onclick=abrir; el.onkeydown=e=>{ if(e.key==="Enter") abrir(); };
+  });
+  document.getElementById("serie").innerHTML=SERIE.map(s=>`<a class="${s[2]?"port":""}" href="https://haroldco45.github.io/${s[0]}/" target="_blank" rel="noopener">${t(s[1])}</a>`).join("");
+  document.getElementById("fuentes").innerHTML=FUENTES.map(f=>`<li><a href="${f[1]}" target="_blank" rel="noopener">${f[0]}</a></li>`).join("");
+  const msg=L==="en"?"Hi Harold, I saw Svalbard para Latinos and I'd like more information.":"Hola Harold, vi Svalbard para Latinos y quiero más información.";
+  document.getElementById("wa").href="https://wa.me/573117700431?text="+encodeURIComponent(msg);
+  document.querySelectorAll("[data-foto]").forEach(el=>ponerFoto(el,el.dataset.foto,900));
+  pintarVivo(); calcular(); convertir();
+  observar();
+}
+
+function pintarCheck(){
+  let hechos=[]; try{hechos=JSON.parse(localStorage.getItem("svalbard_plan")||"[]")}catch(e){}
+  const c=document.getElementById("check");
+  c.innerHTML=CHECK.map((x,i)=>`<label class="${hechos.includes(i)?"ok":""}"><input type="checkbox" data-i="${i}" ${hechos.includes(i)?"checked":""}><span>${t(x)}</span></label>`).join("");
+  c.querySelectorAll("input").forEach(inp=>inp.onchange=()=>{
+    const i=+inp.dataset.i; hechos=inp.checked?[...new Set([...hechos,i])]:hechos.filter(h=>h!==i);
+    try{localStorage.setItem("svalbard_plan",JSON.stringify(hechos))}catch(e){}
+    pintarCheck();
+  });
+  const pct=Math.round(hechos.length/CHECK.length*100);
+  document.getElementById("barra").style.width=pct+"%";
+  document.getElementById("avance").textContent=(L==="en"?"Progress: ":"Avance: ")+pct+"% ("+hechos.length+"/"+CHECK.length+")";
+}
+
+/* ---------- ANIMACIONES ---------- */
+let io;
+function observar(){
+  if(!("IntersectionObserver" in window)){document.querySelectorAll(".rev").forEach(e=>e.classList.add("vis"));return;}
+  io=io||new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add("vis"); io.unobserve(e.target);} }),{threshold:.08});
+  document.querySelectorAll(".rev:not(.vis)").forEach(e=>io.observe(e));
+}
+const secs=["hoy","verdad","papeles","trabajo","vivir","osos","ver","plan"];
+window.addEventListener("scroll",()=>{
+  let act=""; secs.forEach(s=>{const el=document.getElementById(s); if(el && el.getBoundingClientRect().top<120) act=s;});
+  document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+act));
+},{passive:true});
+
+/* ---------- PWA ---------- */
+let evInst=null;
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();evInst=e;document.getElementById("instalar").style.display="inline-flex";});
+document.getElementById("instalar").onclick=async()=>{ if(!evInst) return; evInst.prompt(); await evInst.userChoice; evInst=null; document.getElementById("instalar").style.display="none"; };
+if("serviceWorker" in navigator){ window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden && (!actualizado || Date.now()-actualizado>10*60*1000)) actualizar(); });
+
+textos();
+verSlide(0);
+actualizar();
+</script>
+</body>
+</html>
