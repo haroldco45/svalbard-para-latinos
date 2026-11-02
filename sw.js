@@ -1,5 +1,5 @@
 // Svalbard para Latinos — Vibras Positivas HM
-const CACHE = "svalbard-v1";
+const CACHE = "svalbard-v2";
 const BASE = ["./", "index.html", "manifest.json", "icon-192.png", "icon-512.png"];
 
 self.addEventListener("install", e => {
